@@ -2,7 +2,7 @@
 
 /**
  * print_char - prints a character
- * @ptr: arg_ptr
+ * @ptr: ptr
  */
 
 void print_char(va_list ptr)
