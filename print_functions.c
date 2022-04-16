@@ -22,9 +22,9 @@ void print_string(va_list ptr)
 	if (str == NULL)
 		_putchar(0);
 
-	while (str != '\0')
+	while (*str != '\0')
 	{
-		_putchar(str);
+		_putchar(*str);
 		str++;
 	}
 }

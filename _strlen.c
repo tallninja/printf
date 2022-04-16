@@ -13,7 +13,7 @@ int _strlen(char *str)
 	while (*str != '\0')
 	{
 		length++;
-		str++
+		str++;
 	}
 
 	length += 1; /* for the null byte at the end ot the string */

@@ -15,7 +15,7 @@ char *_strcpy(char *dest, char *src)
 	{
 		dest[i] = src[i];
 	}
-	dest[i] = src[i] /* for the null byte at the end of the string */
+	dest[i] = src[i]; /* for the null byte at the end of the string */
 
 	return (dest);
 }
