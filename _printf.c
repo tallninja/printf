@@ -8,39 +8,40 @@
 
 int _printf(const char *format, ...)
 {
-	int i, j, chars_printed = 0;
+	int i = 0, j = 0, chars_printed = 0, flag = 0;
 	va_list arg_ptr;
-
 	char_t opt[] = {
-		{'c', print_char},
-		{'s', print_string},
-		{'\0', NULL}};
-
+		{"c", print_char},
+		{"s", print_string},
+		{NULL, NULL}};
 	va_start(arg_ptr, format);
 
-	i = 0;
-	while (format[i] != '\0')
+	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
+		return (-1);
+
+	while (format != NULL && format[i] != '\0') /* loop until end of the string */
 	{
-		if (format[i] == '%' && format[i + 1] != '\0')
+		if (format[i] == '%' && format[i + 1] == '%') /* prints % character */
+			_putchar(format[i + 1]), i++, chars_printed++;
+		else if (format[i] == '%' && format[i + 1] != '%')
 		{
-			j = 0;
-			while (opt[j].code != '\0')
+			j = 0, flag = 0;
+			while (opt[j].code != NULL)
 			{
-				if (opt[j].code == format[i + 1])
+				if (opt[j].code[0] == format[i + 1])
 				{
-					opt[j].print_func(arg_ptr);
-					chars_printed++;
+					chars_printed += opt[j].print_func(arg_ptr), flag = 1, i++;
+					break;
 				}
 				j++;
-			}
-			i++;
-		}
+			} /* end of inner while */
+			if (!flag)
+				_putchar(format[i]), chars_printed++;
+		} /* end else if */
 		else
-			_putchar(format[i]);
-
+			_putchar(format[i]), chars_printed++;
 		i++;
-	}
+	} /* end of outer while */
 	va_end(arg_ptr);
-
 	return (chars_printed);
 }

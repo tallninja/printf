@@ -3,28 +3,34 @@
 /**
  * print_char - prints a character
  * @ptr: ptr
+ * Return: 1 which is 1 character printed
  */
 
-void print_char(va_list ptr)
+int print_char(va_list ptr)
 {
 	_putchar(va_arg(ptr, int));
+
+	return (1);
 }
 
 /**
  * print_string - prints a string
  * @ptr: ptr
+ * Return: i number of characters printed
  */
 
-void print_string(va_list ptr)
+int print_string(va_list ptr)
 {
-	char *str = va_arg(ptr, char *);
+	int i;
+	char *str;
+
+	str = va_arg(ptr, char *);
 
 	if (str == NULL)
-		_putchar(0);
+		str = "(nil)";
 
-	while (*str != '\0')
-	{
-		_putchar(*str);
-		str++;
-	}
+	for (i = 0; str[i] != '\0'; i++)
+		_putchar(str[i]);
+
+	return (i);
 }
