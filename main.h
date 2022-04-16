@@ -5,5 +5,6 @@
 
 int _putchar(char c);
 int _strlen(char *str);
+char *_strcpy(char *dest, char *src);
 
 #endif
