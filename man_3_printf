@@ -1,0 +1,51 @@
+.TH "_printf" "" "April 2022" "" ""
+.hy
+.SH NAME
+.PP
+_printf \- a knock\-off version of printf which prints characters to
+STD_OUT
+.SH SYNOPSIS
+.PP
+**_printf**([\f[I]FORMAT\f[R]], [\f[I]ARGS\f[R]]\&...);
+.SH DESCRIPTION
+.PP
+**_printf** is a function prints text and format specifiers to the
+standard output.
+The first argument to the function is the text which contains format
+specifiers.
+It takes an infinite number of arguments which will be fill the
+positions of the format specifiers in the printed text.
+At the moment it can only take character, string, signed integer and
+unsigned integer as arguments.
+.SH FORMAT
+.TP
+.B \f[B]%c\f[R]
+character
+.TP
+.B \f[B]%s\f[R]
+string
+.TP
+.B \f[B]%d\f[R]
+signed integer
+.TP
+.B \f[B]%i\f[R]
+unsigned integer
+.SH EXAMPLES
+.TP
+.B **_printf(\[lq]This is a character: %c\[rq], `H')**
+output: This is a character: H
+.TP
+.B **_printf(\[lq]This is a string: %s\[rq], \[lq]Hello World!\[rq])**
+output: This is a string: Hello World!
+.TP
+.B **_printf(\[lq]This is a signed integer: %d\[rq], \-33)**
+output: This is a signed integer: \-33
+.TP
+.B **_printf(\[lq]This is an unsigned integer: %i\[rq], 33)**
+output: This is an unsigned integer: 33
+.SH EXIT VALUES
+.TP
+.B \f[B]n\f[R]
+number of characters printed
+.SH AUTHORS
+Wanja Gichohi & Ernest Wambua.
