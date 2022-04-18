@@ -11,8 +11,10 @@ int _printf(const char *format, ...)
 	int i = 0, j = 0, chars_printed = 0, flag = 0;
 	va_list arg_ptr;
 	char_t opt[] = {
-		{"c", print_char},
-		{"s", print_string},
+		{"c", print_c},
+		{"s", print_s},
+		{"d", print_d},
+		{"i", print_i},
 		{NULL, NULL}};
 	va_start(arg_ptr, format);
 
