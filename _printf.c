@@ -13,8 +13,6 @@ int _printf(const char *format, ...)
 	char_t opt[] = {
 		{"c", print_c},
 		{"s", print_s},
-		{"d", print_d},
-		{"i", print_i},
 		{NULL, NULL}};
 	va_start(arg_ptr, format);
 
