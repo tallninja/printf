@@ -16,8 +16,6 @@ typedef struct char_func
 } char_t;
 
 int _putchar(char c);
-int _strlen(char *str);
-char *_strcpy(char *dest, char *src);
 int print_char(va_list ptr);
 int print_string(va_list ptr);
 int _printf(const char *format, ...);
