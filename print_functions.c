@@ -2,29 +2,28 @@
 
 /**
  * print_char - prints a character
- * @ptr: ptr
+ * @args: args
  * Return: 1 which is 1 character printed
  */
 
-int print_char(va_list ptr)
+int print_c(va_list args)
 {
-	_putchar(va_arg(ptr, int));
-
-	return (1);
+	/* _putchar returns 1 on success */
+	return (_putchar(va_arg(args, int)));
 }
 
 /**
  * print_string - prints a string
- * @ptr: ptr
+ * @args: args
  * Return: i number of characters printed
  */
 
-int print_string(va_list ptr)
+int print_s(va_list args)
 {
 	int i;
 	char *str;
 
-	str = va_arg(ptr, char *);
+	str = va_arg(args, char *);
 
 	if (str == NULL)
 		str = "(null)";
@@ -33,4 +32,48 @@ int print_string(va_list ptr)
 		_putchar(str[i]);
 
 	return (i);
+}
+
+/**
+ * print_d - prints a signed integer
+ * @args: args
+ * Return: number of digits printed
+ */
+int print_d(va_list args)
+{
+
+	unsigned int absolute, aux, countnum, count;
+	int n;
+
+	count = 0;
+	n = va_arg(args, int);
+	if (n < 0)
+		absolute = (n * -1), count += _putchar('-');
+
+	else
+		absolute = n;
+
+	aux = absolute;
+	countnum = 1;
+
+	while (aux > 9)
+		aux /= 10, countnum *= 10;
+
+	while (countnum >= 1)
+	{
+		count += _putchar(((absolute / countnum) % 10) + '0');
+		countnum /= 10;
+	}
+	return (count);
+}
+
+/**
+ * print_i - prints unsigned integer integer
+ * @args: args
+ * Return: number of digits printed
+ */
+
+int print_i(va_list args)
+{
+	return (print_d(args));
 }
