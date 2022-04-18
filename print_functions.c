@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_char - prints a character
+ * print_c - prints a character
  * @args: args
  * Return: 1 which is 1 character printed
  */
@@ -13,7 +13,7 @@ int print_c(va_list args)
 }
 
 /**
- * print_string - prints a string
+ * print_s - prints a string
  * @args: args
  * Return: i number of characters printed
  */
