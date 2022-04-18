@@ -8,8 +8,9 @@
 
 int print_c(va_list args)
 {
+	char c = va_arg(args, int);
 	/* _putchar returns 1 on success */
-	return (_putchar(va_arg(args, int)));
+	return (_putchar(c));
 }
 
 /**
