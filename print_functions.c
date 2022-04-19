@@ -104,6 +104,7 @@ int print_b(va_list args)
 	for (i = 0; i < middle; i++)
 	{
 		char temp = binary[i];
+
 		binary[i] = binary[len - i - 1];
 		binary[len - i - 1] = temp;
 	}
