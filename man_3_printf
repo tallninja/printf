@@ -28,10 +28,26 @@ character
 string
 .TP
 .B \f[B]%d\f[R]
-signed integer
+decimal
 .TP
 .B \f[B]%i\f[R]
+integer
+.TP
+.B \f[B]%b\f[R]
+binary
+.TP
+.B \f[B]%u\f[R]
 unsigned integer
+.TP
+.B \f[B]%o\f[R]
+octal
+.TP
+.B \f[B]%x\f[R]
+lowercase hex
+.TP
+.B \f[B]%X\f[R]
+uppercase hex
+.TP
 .SH EXAMPLES
 .TP
 .B _printf(\[dq]This is a character: %c\[dq], \[aq]H\[aq])
