@@ -86,33 +86,30 @@ int print_i(va_list args)
 
 int print_b(va_list args)
 {
-	unsigned int b = va_arg(args, unsigned int);
+	unsigned int number = va_arg(args, unsigned int);
 	char binary[256];
-	char temp;
 	int len = 0, i = 0, middle;
 
 	do {
-		if (b % 2 == 0)
-			binary[len] = '0';
-		else
-			binary[len] = '1';
-		b /= 2;
+		binary[len] = number % 2 ? '1' : '0';
+		number /= 2;
 		len++;
-	} while (b != 0);
+	} while (number != 0);
 
 	binary[len] = '\0';
 
 	middle = len / 2;
 
+	/* swap the numbers to reverse the binary string */
 	for (i = 0; i < middle; i++)
 	{
-		temp = binary[i];
+		char temp = binary[i];
 		binary[i] = binary[len - i - 1];
 		binary[len - i - 1] = temp;
 	}
+
 	for (i = 0; i < len; i++)
-	{
 		_putchar(binary[i]);
-	}
+
 	return (len);
 }
