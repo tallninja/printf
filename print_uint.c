@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_uint - prints unsigned integer
+ * print_u - prints unsigned integer
  * @args: args
  * Return: number of characters printed
  */
