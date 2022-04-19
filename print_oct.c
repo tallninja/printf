@@ -8,7 +8,7 @@
 
 int print_o(va_list args)
 {
-	unsigned number = va_arg(args, unsigned int);
+	unsigned int number = va_arg(args, unsigned int);
 	int i, j;
 	char oct[200];
 
