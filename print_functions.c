@@ -86,22 +86,33 @@ int print_i(va_list args)
 
 int print_b(va_list args)
 {
-	unsigned int number = va_arg(args, unsigned int);
-	char bin_number[256];
-	int i, count;
+	unsigned int b = va_arg(args, unsigned int);
+	char binary[256];
+	char temp;
+	int len = 0, i = 0, middle;
 
-	i = 0;
 	do {
-		bin_number[i] = number % 2 ? '1' : '0';
-		number /= 2;
-		i++;
-	} while (number != 0);
+		if (b % 2 == 0)
+			binary[len] = '0';
+		else
+			binary[len] = '1';
+		b /= 2;
+		len++;
+	} while (b != 0);
 
-	bin_number[i] = '\0'; /* null terminate */
-	count = i - 1;
+	binary[len] = '\0';
 
-	for (i = count; i >= 0; i--)
-		_putchar(bin_number[i]);
+	middle = len / 2;
 
-	return (count);
+	for (i = 0; i < middle; i++)
+	{
+		temp = binary[i];
+		binary[i] = binary[len - i - 1];
+		binary[len - i - 1] = temp;
+	}
+	for (i = 0; i < len; i++)
+	{
+		_putchar(binary[i]);
+	}
+	return (len);
 }
