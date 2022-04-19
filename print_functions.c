@@ -91,19 +91,16 @@ int print_b(va_list args)
 	int i, count;
 
 	i = 0;
-	while (number != 0)
-	{
+	do {
 		bin_number[i] = number % 2 ? '1' : '0';
 		number /= 2;
 		i++;
-	}
+	} while (number != 0);
 
-	if (number % 2)
-		bin_number[i] = '1';
+	bin_number[i] = '\0'; /* null terminate */
+	count = i - 1;
 
-	count = i;
-
-	for (; i >= 0; i--)
+	for (i = count; i >= 0; i--)
 		_putchar(bin_number[i]);
 
 	return (count);
