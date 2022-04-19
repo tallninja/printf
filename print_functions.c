@@ -77,3 +77,32 @@ int print_i(va_list args)
 {
 	return (print_d(args));
 }
+
+/**
+ * print_b - converts unsigned int to binary
+ * @args: args
+ * Return: number of binary digits printed
+ */
+
+int print_b(va_list args)
+{
+	unsigned int number = va_arg(args, unsigned int);
+	char bin_number[256];
+	int i, count;
+
+	i = 0;
+	while (number != 0)
+	{
+		bin_number[i] = number % 2 ? '1' : '0';
+		number /= 2;
+		i++;
+	}
+
+	bin_number[i] = number % 2 && '1';
+	count = i;
+
+	for (; i >= 0; i--)
+		_putchar(bin_number[i]);
+
+	return (count);
+}
