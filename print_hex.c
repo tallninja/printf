@@ -8,15 +8,16 @@
 
 int print_x(va_list args)
 {
-	unsigned int i, j, number = va_arg(args, unsigned int);
-	char hex[256];
+	unsigned number = va_arg(args, unsigned int);
+	int i, j;
+	char hex[200];
 
 	i = 0;
 	while (number >= 16)
 		hex[i] = number % 16, number /= 16, i++;
 
 	hex[i] = number;
-	for (j = i;; j--)
+	for (j = i; j >= 0; j--)
 	{
 		switch (hex[j])
 		{
@@ -54,7 +55,8 @@ int print_x(va_list args)
 
 int print_X(va_list args)
 {
-	unsigned int i, j, number = va_arg(args, unsigned int);
+	unsigned int number = va_arg(args, unsigned int);
+	int i, j;
 	char hex[256];
 
 	i = 0;
@@ -62,7 +64,7 @@ int print_X(va_list args)
 		hex[i] = number % 16, number /= 16, i++;
 
 	hex[i] = number;
-	for (j = i;; j--)
+	for (j = i; j >= 0; j--)
 	{
 		switch (hex[j])
 		{
