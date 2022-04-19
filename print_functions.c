@@ -98,7 +98,9 @@ int print_b(va_list args)
 		i++;
 	}
 
-	bin_number[i] = number % 2 && '1';
+	if (number % 2)
+		bin_number[i] = '1';
+
 	count = i;
 
 	for (; i >= 0; i--)
